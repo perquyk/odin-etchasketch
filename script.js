@@ -3,6 +3,13 @@ const button = document.querySelector("button");
 
 button.addEventListener("click", () => setGrid());
 
+function generateColor(){
+    const red = parseInt(Math.random()*255);
+    const green = parseInt(Math.random()*255);
+    const blue = parseInt(Math.random()*255);
+    return `rgb(${red},${green},${blue})`
+}
+
 function setGrid(){
 
     const qty = prompt("Please enter your desired grid size: (E.g. 10)")
@@ -22,7 +29,7 @@ function addGrid(qty){
         const gridSquare = document.createElement("div");
         gridSquare.className = "gridSquare"
         gridContainer.appendChild(gridSquare);
-        gridSquare.addEventListener("mouseenter", (e) => {gridSquare.style.background = "blue";});
+        gridSquare.addEventListener("mouseenter", (e) => {gridSquare.style.background = `${generateColor()}`;});
     }
     flexGrid(qty)
 }
