@@ -4,12 +4,19 @@ const button = document.querySelector("button");
 button.addEventListener("click", () => setGrid());
 
 function setGrid(){
+
     const qty = prompt("Please enter your desired grid size: (E.g. 10)")
     addGrid(qty);
 }
 
+function removeOldGrid(){
+    const gridSquares = document.querySelectorAll(".gridSquare");
+    gridSquares.forEach(gridSquare => (document.querySelector(".gridSquare").remove()));
+}
+
 function addGrid(qty){
     if(qty>100){qty = 100}
+    if(document.querySelector(".gridSquare")){removeOldGrid()}
     
     for(let i = 0; i<qty*qty; i++){
         const gridSquare = document.createElement("div");
